@@ -70,7 +70,10 @@ class GuiaController extends Controller
             Log::debug($request);
 
             $guia = new Estafeta();
-            $guia -> init( $request ); 
+            $guia->parser($request);
+            $result = $guia -> init(); 
+
+            Log::info($result);
 
             $tmp = sprintf("El registro de la guia '%s', fue exitoso","escibir un valor");
             $notices = array($tmp);
