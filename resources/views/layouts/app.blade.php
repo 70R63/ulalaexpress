@@ -41,7 +41,7 @@
 
         <!-- Style css-->
         <link href="{{ url('spruha/css/style.css') }}"  rel="stylesheet">
-        <link href="{{ url('spruha/css/colors/color6.css') }}"  rel="stylesheet">
+        <link href="{{ url('spruha/css/colors/color3.css') }}"  rel="stylesheet">
         
         <!-- Select2 css-->
         <link href="{{ url('spruha/plugins/select2/css/select2.min.css') }}"  rel="stylesheet">
@@ -54,12 +54,6 @@
 </head>
 <body>
     <div id="app">
-        
-        <!--<div class="container mt-5" >
-            <div class="row justify-content-center">
-                <img src="{{ url('spruha/img/brand/ulalaPurpureLogo-134x49.png') }}" class="header-brand-img desktop-logo" alt="logo"> {{ config('app.env', 'Ambiente') }}
-            </div>
-        </div> -->
         <main class="py-4">
             @yield('content')
         </main>

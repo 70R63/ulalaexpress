@@ -30,7 +30,7 @@
         <!-- Style css-->
         <link href="{{ url('spruha/css/style.css') }}"  rel="stylesheet">
         <link href="{{ url('spruha/css/skins.css') }}"  rel="stylesheet">
-        <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ url('spruha/css/colors/color6.css') }}">
+        <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ url('spruha/css/colors/color3.css') }}">
        
         <!-- Select2 css-->
         <link href="{{ url('spruha/plugins/select2/css/select2.min.css') }}"  rel="stylesheet">
