@@ -1,4 +1,4 @@
-<div class="modal fade" id="asigarLtd{{ $objeto->id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+<div class="modalAsignarLtd modal fade" id="asignarLtd{{ $objeto->id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	    	<div class="modal-header">
@@ -6,7 +6,7 @@
 	            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 	            	<span aria-hidden="true">×</span>
 	            </button>
-	         </div>
+	        </div>
 	      	{!! Form::open([ 'route' => ['api.empresaltd.store'], 'metdod' => 'POST',		 	'class'=>'parsley-style-1', 'id'=>'generalForm' ]) 
 	      	!!}
       		@csrf
@@ -22,10 +22,9 @@
 <p>
 							@foreach ($ltds as $ltd)
 							    <label class="selectgroup-item ">
-									{{ Form::checkbox('value[]', $ltd->nombre, false
+									{{ Form::checkbox('value[]', $ltd->id, false
 										, array('class'=>'selectgroup-input'
-											,'required'	=> 'true'
-											,'id'		=> $ltd->id			) 
+											,'name'		=> $ltd->nombre) 
 									)}}
 									<span class="selectgroup-button">{{ $ltd->nombre }}</span>
 								</label>
@@ -36,7 +35,7 @@
 				</div><!-- Fin div class="col-lg-12" -->
 	      	</div><!-- Fin div class="modal-body" -->
 		    <div class="modal-footer">
-		      	<button id="btnAsignarLtd" class="btn btn-primary" type="button" >Asignar</button>
+		      	<button id="" class="btnAsignarLtd btn btn-primary" type="button" >Asignar</button>
 				<a class="btn badge-dark" data-dismiss="modal">Cerrar</a>	
 		    </div> <!-- modal-footer -->
 		    {!! Form::close() !!}

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Log;
 use Laravel\Sanctum\HasApiTokens;
 
-use App\Models\Ltd;
+use App\Models\EmpresaLtd;
 
 
 class EmpresaLtdController extends BaseController
@@ -30,7 +30,16 @@ class EmpresaLtdController extends BaseController
  
     public function store(Request $request)
     {
-        Log::debug($request);
+        Log::info(__CLASS__." ".__FUNCTION__);
+
+        foreach ($request->except('_token') as $key => $value) {
+            Log::debug("$key => $value");
+            EmpresaLtd::create(array('empresa_id' => auth()->user()->empresa_id
+                    ,'ltd_id' => $value ));
+        }
+        
+        
+        
         $success['name'] = "nombre";
         
         return $this->sendResponse($success, 'User login successfully.');

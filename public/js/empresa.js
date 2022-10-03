@@ -1,18 +1,21 @@
 
 
-$("#btnAsignarLtd").click(function(e) {
+$(".btnAsignarLtd").click(function(e) {
     console.log("btnAsignarLtd")
     e.preventDefault();
 
     var form = $('#generalForm').parsley().refresh();
     var action = $('#generalForm').attr("action");
+    console.log(action);
 
+    $(".modalAsignarLtd").modal('hide');
+   
     if ( form.validate() ){ 
 
          $.ajax({
             /* Usar el route  */
             url: action,
-            type: 'GET',
+            type: 'POST',
             /* send the csrf-token and the input to the controller */
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             data: $('#generalForm').serialize()
