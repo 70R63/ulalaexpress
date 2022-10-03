@@ -64,5 +64,6 @@
    </div>
    <!-- End Row -->
 </div>
-<!-- End Page -->
-@endsection
+		<!-- End Page -->
+
+		@endsection

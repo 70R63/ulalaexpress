@@ -11,10 +11,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('nombre_d'
+				{!! Form::text('nombre'
 					, $cliente->nombre
 					,['class' 		=> 'form-control'
-						,'id'		=> 'nombre_d'
+						,'id'		=> 'nombre'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -27,10 +27,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('contacto_d'
+				{!! Form::text('contacto'
 					, $cliente->contacto
 					,['class' 		=> 'form-control'
-						,'id'		=> 'contacto_d'
+						,'id'		=> 'contacto'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -43,10 +43,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('direccion_d'
+				{!! Form::text('direccion'
 					, $cliente->direccion
 					,['class' 		=> 'form-control'
-						,'id'		=> 'direccion_d'
+						,'id'		=> 'direccion'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -59,10 +59,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('cp_d'
+				{!! Form::text('cp'
 					, $cliente->cp
 					,['class' 		=> 'form-control'
-						,'id'		=> 'cp_d'
+						,'id'		=> 'cp'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -75,10 +75,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('colonia_d'
+				{!! Form::text('colonia'
 					, $cliente->colonia
 					,['class' 		=> 'form-control'
-						,'id'		=> 'colonia_d'
+						,'id'		=> 'colonia'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -91,10 +91,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('ciudad_d'
+				{!! Form::text('ciudad'
 					, $cliente->ciudad
 					,['class' 		=> 'form-control'
-						,'id'		=> 'ciudad_d'
+						,'id'		=> 'ciudad'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -107,10 +107,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('entidad_federativa_d'
+				{!! Form::text('entidad_federativa'
 					, $cliente->entidad_federativa
 					,['class' 		=> 'form-control'
-						,'id'		=> 'entidad_federativa_d'
+						,'id'		=> 'entidad_federativa'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -123,10 +123,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('celular_d'
+				{!! Form::text('celular'
 					, $cliente->celular
 					,['class' 		=> 'form-control'
-						,'id'		=> 'celular_d'
+						,'id'		=> 'celular'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
@@ -139,10 +139,10 @@
 					</span>
 				</div>
 
-				{!! Form::text('telefono_d'
+				{!! Form::text('telefono'
 					, $cliente->telefono
 					,['class' 		=> 'form-control'
-						,'id'		=> 'telefono_d'
+						,'id'		=> 'telefono'
 						,'required'	=>	'true'
 						,'readonly' =>  'true'
 					])
