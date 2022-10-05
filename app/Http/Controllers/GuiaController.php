@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Guia;
 use App\Models\EmpresaLtd;
 use Illuminate\Http\Request;
+use App\Mail\GuiaCreada;
 
 use Log;
 use App\Dto\Estafeta;
+use Mail;
 
 class GuiaController extends Controller
 {
@@ -73,13 +75,17 @@ class GuiaController extends Controller
         try {
             
             Log::debug($request);
-
+            /*
             $guia = new Estafeta();
             $guia->parser($request);
             $result = $guia -> init(); 
-
             Log::info($result);
-
+            */
+            $subject = "Asunto del correo";
+            $for = "javier_v31_@hotmail.com";
+            
+            Mail::to($for)->send(new GuiaCreada());
+           
             $tmp = sprintf("El registro de la guia '%s', fue exitoso","escibir un valor");
             $notices = array($tmp);
   
