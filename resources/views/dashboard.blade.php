@@ -30,7 +30,7 @@
         <!-- Style css-->
         <link href="{{ url('spruha/css/style.css') }}"  rel="stylesheet">
         <link href="{{ url('spruha/css/skins.css') }}"  rel="stylesheet">
-        <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ url('spruha/css/colors/color3.css') }}">
+        <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ url('spruha/css/colors/color2.css') }}">
        
         <!-- Select2 css-->
         <link href="{{ url('spruha/plugins/select2/css/select2.min.css') }}"  rel="stylesheet">
@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="{{ url('spruha/plugins/multipleselect/multiple-select.css') }}">
 
         <!-- Sidemenu css-->
-        <link href="{{ url('spruha/css/sidemenu/sidemenu.css') }}"  rel="stylesheet">
+        <link href="{{ url('spruha/css/sidemenu/sidemenu2.css') }}"  rel="stylesheet">
         
 
         <!-- Internal DataTables css-->
@@ -61,8 +61,8 @@
 
                 <div class="sidemenu-logo">
                     <a class="main-logo" href="{{ route('dashboard') }}">
-                        <img src="{{ url('spruha/img/brand/xpertaLogoTrans-110x91-2.png') }}" class="header-brand-img desktop-logo" alt="logo">
-                        <img src="{{ url('spruha/img/brand/xperta-50x56-removebg-preview.png') }}" class="header-brand-img icon-logo" alt="logo">
+                        <img src="{{ url('spruha/img/brand/ulalaLogoBco-134x50.png') }}" class="header-brand-img desktop-logo" alt="logo">
+                        <img src="{{ url('spruha/img/brand/logoUlala-50x56.png') }}" class="header-brand-img icon-logo" alt="logo">
                         <img src="{{ url('spruha/img/brand/ulalaBco.png') }}" class="header-brand-img desktop-logo theme-logo" alt="logo">
                         <img src="{{ url('spruha/img/brand/ulalaBco.png') }}" class="header-brand-img icon-logo theme-logo" alt="logo">
                     </a>

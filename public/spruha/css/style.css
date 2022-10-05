@@ -7177,7 +7177,7 @@ div.dtr-modal div.dtr-modal-content {
     border-top-width: 1px;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    background-color: #D3EAFD;
+    background-color: #824aaa;
 }
 
 .table-borderless th,
@@ -7503,7 +7503,7 @@ div.dtr-modal div.dtr-modal-content {
 }
 
 .table-striped tbody tr:nth-of-type(2n+1) {
-    background-color: #D3EAFD;
+    background-color: #efefff;
 }
 
 .table.dtr-details {
@@ -8462,7 +8462,7 @@ div.dataTables_wrapper div.dataTables_length select {
 
 .main-header {
     height: 60px;
-    background-color: #0e75ed;
+    background-color: #824aaa;
     box-shadow: none;
     border-bottom: 1px solid #e8e8f7;
     z-index: 99;
@@ -12865,7 +12865,7 @@ textarea.parsley-success:focus {
 
 .main-calendar .fc-header-toolbar button.fc-today-button.fc-state-disabled {
     border-color: #EDF2F9;
-    background-color: #D3EAFD;
+    background-color: #efefff;
     color: #30304a;
     cursor: default;
 }
