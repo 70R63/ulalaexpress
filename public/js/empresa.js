@@ -3,10 +3,12 @@
 $(".btnAsignarLtd").click(function(e) {
     console.log("btnAsignarLtd")
     e.preventDefault();
-
+    
+    var idModal = "#asignarLtd"+$(this).attr('id');
+    
+    var data = $(idModal).find('Form').serialize();
+    var accion = $(idModal).find('Form').attr("action");
     var form = $('#generalForm').parsley().refresh();
-    var action = $('#generalForm').attr("action");
-    console.log(action);
 
     $(".modalAsignarLtd").modal('hide');
    
@@ -14,21 +16,30 @@ $(".btnAsignarLtd").click(function(e) {
 
          $.ajax({
             /* Usar el route  */
-            url: action,
+            url: accion,
             type: 'POST',
             /* send the csrf-token and the input to the controller */
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            data: $('#generalForm').serialize()
+            data: data
             
             /* remind that 'data' is the response of the AjaxController */
             }).done(function( response) {
 
-                alert("ok");
+                swal(
+                    "Exito!",
+                    "Asignacion correcta!",
+                    "success"
+                  )
 
             }).fail( function( data,jqXHR, textStatus, errorThrown ) {
                 console.log( "fail" );
                 console.log(textStatus);
                 
+                swal(
+                    "Exito!",
+                    "Asignacion incorrecta!",
+                    "error"
+                  )
                 alert( data.responseJSON.message);
 
             }).always(function() {

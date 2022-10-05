@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateEmpresaRequest;
 use App\Models\Empresa;
 use App\Models\EmpresaEmpresas;
 use App\Models\Ltd;
+use App\Models\EmpresaLtd;
+
+
 use Log;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -30,10 +33,15 @@ class EmpresaController extends Controller
             Log::info(__CLASS__." ".__FUNCTION__);
 
             $tabla = Empresa::get();
-            
+            $empresaLtd = EmpresaLtd::get()->toArray();
+            $ltdActivo = array();
+            foreach ($empresaLtd as $key => $value) {
+                $ltdActivo[$value['empresa_id']][$value['ltd_id']]= "true";
+            }
             $ltds = Ltd::get();             
+            
             return view(self::DASH_v 
-                    ,compact("tabla","ltds")
+                    ,compact("tabla","ltds", "ltdActivo")
                 );
 
         } catch (Exception $e) {
