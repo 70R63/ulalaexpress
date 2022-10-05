@@ -20,14 +20,18 @@ class RolesMiddleware
      */
     public function handle(Request $request, Closure $next,...$roles)
     {
-        Log::info("roles----------------");
-        Log::info($roles);
-        foreach($roles as $rol){
+        if(auth()->user() == null){
+        Log::info("nulo");
+        return redirect('login');
+     }
+     else
+         foreach($roles as $rol){
             Log::info($rol);
             if(auth()->user()->hasRol($rol)){
                 return $next($request);
             }       
         }
-     return redirect(RouteServiceProvider::HOME);
+    return redirect(RouteServiceProvider::HOME);
     }
+    
 }
