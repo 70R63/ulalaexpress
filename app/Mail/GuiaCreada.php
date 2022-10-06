@@ -29,16 +29,23 @@ class GuiaCreada extends Mailable
     public $nombre;
 
     /**
+     * Ees el valor generado despues de insertar el registro
+     *
+     * @var id
+     */
+    public $id;
+
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($objeto)
+    public function __construct($objeto, int $id)
     {
         $this->objeto = $objeto;
         $ltd = Ltd::findOrFail($objeto->ltd_id)->get("nombre")->toArray();
         $this->nombre =$ltd[0]["nombre"]; 
-        
+        $this->id = $id;
     }
 
     /**

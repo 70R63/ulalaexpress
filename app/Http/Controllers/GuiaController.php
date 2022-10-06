@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Guia;
 use App\Models\EmpresaLtd;
-use Illuminate\Http\Request;
 use App\Mail\GuiaCreada;
-
-use Log;
 use App\Dto\Estafeta;
+use App\Dto\Guia as GuiaDTO;
+
+use Illuminate\Http\Request;
+use Log;
 use Mail;
 
 class GuiaController extends Controller
@@ -29,10 +30,13 @@ class GuiaController extends Controller
     public function index()
     {
         try {
-            Log::info(__CLASS__." ".__FUNCTION__);    
-            $tabla = array();
+            Log::info(__CLASS__." ".__FUNCTION__);   
+            $ltdActivo = EmpresaLtd::LtdEmpresa()->pluck("nombre","ltd_id");
+            
+            $tabla = Guia::get(); 
+            
             return view('guia.dashboard' 
-                    ,compact("tabla")
+                    ,compact("tabla", "ltdActivo")
                 );
         } catch (Exception $e) {
             Log::info(__CLASS__." ".__FUNCTION__);
@@ -81,12 +85,13 @@ class GuiaController extends Controller
             $result = $guia -> init(); 
             Log::info($result);
             */
-            $subject = "Asunto del correo";
-            $for = "javier_v31_@hotmail.com";
-            
-            Mail::to($for)->send(new GuiaCreada($request));
+            $guiaDTO = new GuiaDTO();
+            $guiaDTO->parser($request);
+
+            $id = Guia::create($guiaDTO->insert)->id;
+            Mail::to($request->email)->send(new GuiaCreada($request, $id));
            
-            $tmp = sprintf("El registro de la guia '%s', fue exitoso","escibir un valor");
+            $tmp = sprintf("El registro de la guia '%s', fue exitoso",$id);
             $notices = array($tmp);
   
             return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);

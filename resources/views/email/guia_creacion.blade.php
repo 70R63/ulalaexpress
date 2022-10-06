@@ -1,7 +1,7 @@
 <div class="container">
     <p>Hola Estimado Usuario {{$usuario}}</p>
     <p>
-        Hemos recibido su peticion de Guia 
+        Hemos recibido su peticion de Guia con Numero <b> {{$id}}</b>
     </p>
     <p>
         Los datos del Remitente <b>{{ $objeto->nombre}}</b> son:
