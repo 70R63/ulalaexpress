@@ -7,18 +7,38 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+use App\Models\Ltd;
+
+
 class GuiaCreada extends Mailable
 {
     use Queueable, SerializesModels;
+
+    /**
+     * El objeto contiene lo valores de la forma
+     *
+     * @var objeto
+     */
+    public $objeto;
+
+    /**
+     * El nombre del ltd
+     *
+     * @var nombre
+     */
+    public $nombre;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($objeto)
     {
-        //
+        $this->objeto = $objeto;
+        $ltd = Ltd::findOrFail($objeto->ltd_id)->get("nombre")->toArray();
+        $this->nombre =$ltd[0]["nombre"]; 
+        
     }
 
     /**
@@ -30,6 +50,7 @@ class GuiaCreada extends Mailable
     {
         return $this->from("guias@ulalaexpress.com","Guias UlalaExpress")
             ->subject("Asunto del correo")
-            ->view('email/guia_creacion');
+            ->view('email/guia_creacion')
+            ->with(["usuario"=>"Javier"]);
     }
 }

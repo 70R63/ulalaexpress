@@ -84,7 +84,7 @@ class GuiaController extends Controller
             $subject = "Asunto del correo";
             $for = "javier_v31_@hotmail.com";
             
-            Mail::to($for)->send(new GuiaCreada());
+            Mail::to($for)->send(new GuiaCreada($request));
            
             $tmp = sprintf("El registro de la guia '%s', fue exitoso","escibir un valor");
             $notices = array($tmp);
