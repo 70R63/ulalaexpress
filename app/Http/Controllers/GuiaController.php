@@ -89,7 +89,9 @@ class GuiaController extends Controller
             $guiaDTO->parser($request);
 
             $id = Guia::create($guiaDTO->insert)->id;
-            Mail::to($request->email)->send(new GuiaCreada($request, $id));
+            Mail::to($request->email)
+                ->cc(\Config("mail.cc"))
+                ->send(new GuiaCreada($request, $id));
            
             $tmp = sprintf("El registro de la guia '%s', fue exitoso",$id);
             $notices = array($tmp);
