@@ -33,8 +33,7 @@ class RolesMiddleware
      if(auth()->user() == null){
         Log::info("nulo");
         return redirect('login');
-     }
-     else
+     }else {
          foreach($roles as $rol){
             Log::info($rol);
             if(auth()->user()->hasRol($rol)){
