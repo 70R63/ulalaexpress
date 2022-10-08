@@ -128,22 +128,20 @@
 
 	$('#handleCounterMax28').handleCounter(options28)
 
-    var options = {
-        minimum: 1,
-        maximize: 100,
-        onChange: valChanged,
-        onMinimum: function(e) {
-            console.log('reached minimum: '+e)
+        var options = {
+            minimum: 1,
+            maximize: 100,
+            onChange: valChanged,
+            onMinimum: function(e) {
+                console.log('reached minimum: '+e)
 
-        },
-        onMaximize: function(e) {
-            console.log('reached maximize'+e)
-        }
-    };
+            },
+            onMaximize: function(e) {
+                console.log('reached maximize'+e)
+            }
+        };
 
-	$('#handleCounterMax100').handleCounter(options)
-    $('#handleCounterMax100_ini').handleCounter(options)
-    $('#handleCounterMax100_fin').handleCounter(options)
+		$('#handleCounterMax100').handleCounter(options)
 		
     function valChanged(d) {
         console.log(d)
