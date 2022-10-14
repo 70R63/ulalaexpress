@@ -14,6 +14,7 @@ use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Log;
 use Mail;
+use Config;
 
 class GuiaController extends Controller
 {
@@ -97,7 +98,7 @@ class GuiaController extends Controller
             Log::info(__CLASS__." ".__FUNCTION__." Guia::create");
             $id = Guia::create($guiaDTO->insert)->id;
             Mail::to($request->email)
-                ->cc(" guias@ulalaexpress.com")
+                ->cc(Config("mail.cc"))
                 ->send(new GuiaCreada($request, $id));
            
             $tmp = sprintf("El registro de la guia '%s', fue exitoso",$id);
