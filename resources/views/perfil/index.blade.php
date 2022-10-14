@@ -10,7 +10,7 @@
 			
 		</div>
 		<a class="dropdown-item border-top" href="{{route('profile.index')}}">
-			<i class="fe fe-user"></i> My Profile
+			<i class="fe fe-user"></i> Mi perfil
 		</a>
 		<a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
 			<i class="fe fe-power"></i> Cerrar sesión
