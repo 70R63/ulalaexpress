@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 
 use App\Models\Ltd;
 
+use Log;
 
 class GuiaCreada extends Mailable
 {
@@ -42,6 +43,7 @@ class GuiaCreada extends Mailable
      */
     public function __construct($objeto, int $id)
     {
+        Log::info(__CLASS__." ".__FUNCTION__); 
         $this->objeto = $objeto;
         $ltd = Ltd::findOrFail($objeto->ltd_id)->get("nombre")->toArray();
         $this->nombre =$ltd[0]["nombre"]; 

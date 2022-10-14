@@ -7,6 +7,9 @@ use App\Models\EmpresaLtd;
 use App\Mail\GuiaCreada;
 use App\Dto\Estafeta;
 use App\Dto\Guia as GuiaDTO;
+use GuzzleHttp\Client;
+use App\Models\Sucursal;
+use App\Models\Cliente;
 
 use Illuminate\Http\Request;
 use Log;
@@ -30,13 +33,15 @@ class GuiaController extends Controller
     public function index()
     {
         try {
-            Log::info(__CLASS__." ".__FUNCTION__);   
+            Log::info(__CLASS__." ".__FUNCTION__); 
             $ltdActivo = EmpresaLtd::LtdEmpresa()->pluck("nombre","ltd_id");
-            
+            $cliente = Cliente::pluck("nombre","id");
+            $sucursal = Sucursal::pluck("nombre","id");
+
             $tabla = Guia::get(); 
             
             return view('guia.dashboard' 
-                    ,compact("tabla", "ltdActivo")
+                    ,compact("tabla", "ltdActivo","cliente","sucursal")
                 );
         } catch (Exception $e) {
             Log::info(__CLASS__." ".__FUNCTION__);
@@ -76,6 +81,7 @@ class GuiaController extends Controller
     public function store(Request $request)
     {
         Log::info(__CLASS__." ".__FUNCTION__);
+        $mensaje = "Error General";
         try {
             
             Log::debug($request);
@@ -88,9 +94,10 @@ class GuiaController extends Controller
             $guiaDTO = new GuiaDTO();
             $guiaDTO->parser($request);
 
+            Log::info(__CLASS__." ".__FUNCTION__." Guia::create");
             $id = Guia::create($guiaDTO->insert)->id;
             Mail::to($request->email)
-                ->cc(\Config("mail.cc"))
+                ->cc(" guias@ulalaexpress.com")
                 ->send(new GuiaCreada($request, $id));
            
             $tmp = sprintf("El registro de la guia '%s', fue exitoso",$id);
@@ -101,14 +108,18 @@ class GuiaController extends Controller
         } catch(\Illuminate\Database\QueryException $ex){ 
             Log::info(__CLASS__." ".__FUNCTION__." "."QueryException");
             Log::debug($ex->getMessage()); 
-            return \Redirect::back()
-                ->withErrors(array($ex->errorInfo[2]))
-                ->withInput();
+            $mensaje= $ex->errorInfo[2];
 
         } catch (Exception $e) {
             Log::info(__CLASS__." ".__FUNCTION__." "."Exception");
             Log::debug( $e->getMessage() );
+            $mensaje= $e->getMessage();
         }
+
+        return \Redirect::back()
+                ->withErrors(array($mensaje))
+                ->withInput();
+
     }
 
     /**

@@ -22,13 +22,13 @@
 
 	<div class="input-group mb-3">
 		<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">Dimensiones <span class="tx-danger">*</span></span>
+			<span class="input-group-text" id="basic-addon1">Dimensiones </span>
 		</div>
 		{!! Form::text('largo[]', null,
 			['class' 		=> 'form-control'
 			,'id'			=> 'largo'
 			,'placeholder'	=> 'Largo '
-			,'required'	=> 'true'
+			
 			])
 		!!}
 
@@ -36,7 +36,7 @@
 			['class' 		=> 'form-control'
 			,'id'			=> 'ancho'
 			,'placeholder'	=> 'Ancho  '
-			,'required'	=> 'true'
+			
 			])
 		!!}
 
@@ -44,7 +44,7 @@
 			['class' 		=> 'form-control'
 			,'id'			=> 'alto'
 			,'placeholder'	=> 'Alto '
-			,'required'	=> 'true'
+			
 			])
 		!!}
 	</div>

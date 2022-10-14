@@ -75,6 +75,7 @@ table = $('#cotizacionAjax').DataTable({
 });
 $('#cotizacionAjax tbody').on('click', 'tr', function () {
     
+    console.log(table.row(this).data());
     var piezas = $('#piezas').val();
     var sucursal_id = $('#sucursal').val();
     var cliente_id = $('#cliente').val();
@@ -84,6 +85,7 @@ $('#cotizacionAjax tbody').on('click', 'tr', function () {
     var precio = table.row(this).data()['costo_total']*piezas;
     var tarifa_id = table.row(this).data()['id'];
     var ltd_nombre = table.row(this).data()['nombre'];
+    var ltd_id = table.row(this).data()['ltds_id'];
 
     $("#spanPrecio").text(precio);
     $("#spanMensajeria").text(ltd_nombre);
@@ -91,12 +93,13 @@ $('#cotizacionAjax tbody').on('click', 'tr', function () {
     $("#spanDestinatario").text(cp_d);
     $("#spanPieza").text(piezas);
     
-    //valores para request, campos ocultos
+    //valores para request, campos ocultos guiastore_ocultos
     $("#precio").val(precio);
     $("#tarifa_id").val(tarifa_id);
     $("#sucursal_id").val(sucursal_id);
     $("#cliente_id").val(cliente_id);
     $("#ltd_nombre").val(ltd_nombre);
+    $("#ltd_id").val(ltd_id);
     $("#piezas_guia").val(piezas);
     
     console.log(cliente_id);

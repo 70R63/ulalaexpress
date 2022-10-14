@@ -64,14 +64,16 @@ class GuiaController extends Controller
             
             $body = array('grant_type' => 'client_credentials',
                     'client_id' => 'l7640a59a8ce1c4dfea7bb2d302febc882' ,
-                    'client_secret' => '2bc10d1d2f3b4b6ab55a0e63518c306e', );
+                    'client_secret' => '2bc10d1d2f3b4b6ab55a0e63518c306e');
             
             
 
             $response = $client->request('POST', 'oauth/token', [
                 'headers'   => $headers
-                ,'body'     => $body
+                
             ]);
+
+            return $response;
 
 
 /*
