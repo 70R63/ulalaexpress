@@ -101,7 +101,7 @@ class GuiaController extends Controller
                 ->cc(Config("mail.cc"))
                 ->send(new GuiaCreada($request, $id));
            
-            $tmp = sprintf("El registro de la guia '%s', fue exitoso",$id);
+            $tmp = sprintf("El registro de la guia con ID %d fue exitoso, la guia sera enviada al correo '%s' ",$id,$request->email);
             $notices = array($tmp);
   
             return \Redirect::route(self::INDEX_r) -> withSuccess ($notices);
