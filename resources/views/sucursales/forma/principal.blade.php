@@ -4,7 +4,7 @@
         	<div class="card-item">
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">SUCURSAL
+						<span class="input-group-text" id="basic-addon1">NOMBRE REMITENTE
 						</span>
 					</div>
 
@@ -98,12 +98,15 @@
 						</span>
 					</div>
 
-					{!! Form::text('entidad_federativa'
-						, null
+					{!! Form::select('entidad_federativa'
+						, Config('general.entidad_federativa')
+						,null
 						,['class' 		=> 'form-control'
+							,'placeholder'	=> 'Seleccionar'
+							,'required'	=> 'true'
+							,'name'		=> 'entidad_federativa'
 							,'id'		=> 'entidad_federativa'
-							,'required'	=>	'true'
-						])
+						]);
 					!!}
 				</div>
 

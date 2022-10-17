@@ -34,9 +34,13 @@ $("#cotizar").click(function(e) {
                     "columns": [
                         { "data": "id" },
                         { "data": "nombre" },
+                        { "data": "costo" 
+                            ,render: function (data) {
+                                return '$ '+data;
+                            } 
+                        },
                         { "data": "kg_ini" },
                         { "data": "kg_fin" },
-                        { "data": "costo" },
                         { "data": "kg_extra" },
                         { "data": "extendida" },
                         { "data": "costo_total"

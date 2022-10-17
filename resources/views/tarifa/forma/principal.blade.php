@@ -5,7 +5,7 @@
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1">
-							LTD 
+							PROVEEDOR 
 							<span class="tx-danger">*</span>
 						</span>
 					</div>
@@ -30,6 +30,21 @@
 					{!! Form::select('servicio_id'
 						,$pluckServicio
 						,$tarifa['servicio_id'] ?? '0'
+						,['class' 		=> 'form-control'
+							,'placeholder'	=> 'Seleccionar'
+							,'required'	=> 'true'
+						]);
+					!!}
+
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							EMPRESA <span class="tx-danger">*</span>
+						</span>
+					</div>
+					
+					{!! Form::select('empresa_id'
+						,$pluckEmpresa
+						,null
 						,['class' 		=> 'form-control'
 							,'placeholder'	=> 'Seleccionar'
 							,'required'	=> 'true'
